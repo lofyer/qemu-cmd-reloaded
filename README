@@ -1,0 +1,24 @@
+1. Replace qemu-system-x86_64 with qemu-kvm for the purpose of portability.
+
+
+2. New directory.
+
+VM should be placed in this way:
+
+├── bindvfio.sh
+├── mkiso.sh
+├── qemu-create-img.sh
+├── qemu-start-q35.sh
+├── qemu-start.sh
+├── README
+├── tap-gentoo.sh
+├── tobeiso
+│   ├── spice-guest-tools-0.74.exe
+│   ├── virtio32.vfd
+│   └── virtio64.vfd
+└── vm
+    └── ovirt-ha
+        └── qemu-start.sh
+
+
+3. Some useful utilities are in that iso.
