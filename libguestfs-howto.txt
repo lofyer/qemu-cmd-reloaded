@@ -1,0 +1,33 @@
+1. virt-resize
+	Examing the filesystem:
+		virt-filesystem --all --long -h -a a.img
+	Create a truncated file:
+		raw:
+		truncate -r a.img b.img
+		truncate -s +10G b.img
+		qcow2:
+		qemu create -f qcow2 -o preallocation=metadata b.img 20G
+	Resize the disk:
+		virt-resize --resize /dev/sda1=+200M --expand /dev/sda2 a.img b.img
+
+2. list file/directory
+	virt-ls a.img /bin/
+
+3. edit file
+	virt-edit a.img /etc/passwd
+
+4. mount
+	dev:
+	guestmount -a a.img -m /dev/sda1 --rw /mnt
+	directory:
+	guestmount -a a.img -m /dev/sda1:/boot/ --rw /mnt
+
+5. copy
+	copy to vm:
+	virt-copy-in -a a.img my.txt /home/demo/
+	corpy from vm:
+	mkdir home-files-from-vm/
+	virt-copy-out -a a.img /home/ home-files-from-vm/
+
+6. guess os
+	virt-inspector -a a.img | grep product_name
