@@ -6,9 +6,11 @@
 		truncate -r a.img b.img
 		truncate -s +10G b.img
 		qcow2:
-		qemu create -f qcow2 -o preallocation=metadata b.img 20G
+		qemu-img create -f qcow2 -o preallocation=metadata b.img 20G
 	Resize the disk:
 		virt-resize --resize /dev/sda1=+200M --expand /dev/sda2 a.img b.img
+		LVM:
+		virt-resize --expand /dev/sda2 --LV-expand /dev/vg_livecd/lv_root hda.qcow2 hda-new.qcow2
 
 2. list file/directory
 	virt-ls a.img /bin/
