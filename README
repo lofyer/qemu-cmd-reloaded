@@ -1,5 +1,10 @@
-1. Replace qemu-system-x86_64 with qemu-kvm for the purpose of portability.
+0. How to use?
 
+# ./qemu-create-img.sh
+# ./qemu-start.sh
+# remote-viewer spice://localhost?port=6000
+
+1. Replace qemu-system-x86_64 with qemu-kvm for the purpose of portability.
 
 2. New directory.
 
@@ -19,6 +24,5 @@ VM should be placed in this way:
 └── vm
     └── ovirt-ha
         └── qemu-start.sh
-
 
 3. Some useful utilities are in that iso.
