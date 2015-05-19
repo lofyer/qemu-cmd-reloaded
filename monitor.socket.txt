@@ -1,0 +1,2 @@
+1. nc -U mymonitor
+2. JSON
